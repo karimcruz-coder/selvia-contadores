@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASG Hub — Compramos sua contabilidade</title>
+  <meta name="description" content="A ASG Hub compra contabilidades pequenas e injeta tecnologia para escalar. Avaliação justa, processo transparente, seus clientes bem cuidados." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --verde-escuro: #0D423F;
+      --verde-claro:  #69E470;
+      --off-white:    #F9F9F9;
+      --amarelo:      #F1FDC1;
+      --bege:         #E2E7C7;
+      --laranja:      #F4933B;
+      --azul:         #84A0FF;
+      --rosinha:      #F2B8F4;
+      --amarelo-ouro: #FFD15C;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lexend', 'Nunito', 'Poppins', sans-serif;
+      background: var(--off-white);
+      color: var(--verde-escuro);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── Helpers ─── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--verde-escuro);
+      background: var(--amarelo);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--verde-claro);
+      color: var(--verde-escuro);
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(105,228,112,.35); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--off-white);
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 12px;
+      border: 2px solid rgba(255,255,255,.35);
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      white-space: nowrap;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.6); }
+
+    /* ─── Navbar ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(13,66,63,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(105,228,112,.12);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -.02em;
+    }
+    .nav-logo span { color: var(--verde-claro); }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,.75);
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { font-size: 14px !important; padding: 10px 20px !important; }
+    .nav-mobile-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      font-size: 24px;
+    }
+
+    /* ─── Hero ─── */
+    #hero {
+      background: var(--verde-escuro);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(105,228,112,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(241,253,193,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(105,228,112,.12);
+      border: 1px solid rgba(105,228,112,.25);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--verde-claro);
+      margin-bottom: 24px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--verde-claro);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.7); }
+    }
+    .hero-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      margin-bottom: 20px;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--verde-claro);
+    }
+    .hero-sub {
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(255,255,255,.7);
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+    .hero-sub strong { color: #fff; font-weight: 600; }
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .hero-stat { border-left: 2px solid var(--verde-claro); padding-left: 14px; }
+    .hero-stat-num {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .hero-stat-num span { color: var(--verde-claro); }
+    .hero-stat-label { font-size: 13px; color: rgba(255,255,255,.55); font-weight: 400; }
+
+    /* Hero card mockup */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .card-mockup {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px;
+      padding: 28px;
+      width: 100%;
+      max-width: 380px;
+      backdrop-filter: blur(8px);
+    }
+    .card-mockup-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .card-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--verde-claro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--verde-escuro);
+      flex-shrink: 0;
+    }
+    .card-mockup-name { font-size: 15px; font-weight: 600; color: #fff; }
+    .card-mockup-sub { font-size: 12px; color: rgba(255,255,255,.5); }
+    .card-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .card-row:last-child { border-bottom: none; }
+    .card-row-label { font-size: 13px; color: rgba(255,255,255,.6); }
+    .card-row-value { font-size: 14px; font-weight: 600; color: #fff; }
+    .card-row-value.green { color: var(--verde-claro); }
+    .card-row-value.yellow { color: var(--amarelo-ouro); }
+    .card-tag-wrapper {
+      margin-top: 16px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .card-pill {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .card-pill.green { background: rgba(105,228,112,.15); color: var(--verde-claro); }
+    .card-pill.yellow { background: rgba(255,209,92,.15); color: var(--amarelo-ouro); }
+    .card-cta {
+      margin-top: 18px;
+      width: 100%;
+      background: var(--verde-claro);
+      color: var(--verde-escuro);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    /* ─── Seção Dor ─── */
+    #dor {
+      background: var(--amarelo);
+      padding: 80px 0;
+    }
+    .dor-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .dor-title {
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      color: var(--verde-escuro);
+    }
+    .dor-title em { font-style: normal; text-decoration: underline; text-decoration-color: var(--verde-claro); text-decoration-thickness: 3px; }
+    .dor-text {
+      font-size: 17px;
+      color: rgba(13,66,63,.75);
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+    .dor-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .dor-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(13,66,63,.06);
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 15px;
+      color: var(--verde-escuro);
+    }
+    .dor-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      line-height: 1.3;
+    }
+
+    /* ─── Prova Social / Destaque ─── */
+    #prova {
+      background: var(--verde-escuro);
+      padding: 72px 0;
+    }
+    .prova-inner {
+      text-align: center;
+    }
+    .prova-title {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -.02em;
+    }
+    .prova-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,.65);
+      max-width: 560px;
+      margin: 0 auto 52px;
+    }
+    .prova-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 52px;
+    }
+    .prova-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(105,228,112,.15);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .prova-num {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--verde-claro);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .prova-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,.7);
+      line-height: 1.5;
+    }
+    .prova-quote {
+      background: rgba(105,228,112,.08);
+      border: 1px solid rgba(105,228,112,.2);
+      border-left: 4px solid var(--verde-claro);
+      border-radius: 0 16px 16px 0;
+      padding: 28px 32px;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .prova-quote-photo-wrap {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 3px solid var(--verde-claro);
+    }
+    .prova-quote-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .prova-quote-text { flex: 1; }
+    .prova-quote p {
+      font-size: 17px;
+      font-weight: 400;
+      color: rgba(255,255,255,.9);
+      font-style: italic;
+      line-height: 1.65;
+    }
+    .prova-quote cite {
+      display: block;
+      margin-top: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,.5);
+      font-style: normal;
+    }
+    @media (max-width: 560px) {
+      .prova-quote { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+
+    /* ─── Caminhos ─── */
+    #caminhos {
+      background: var(--off-white);
+      padding: 96px 0;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: var(--verde-escuro);
+      margin-bottom: 12px;
+    }
+    .section-title em { font-style: normal; color: var(--verde-claro); }
+    .section-sub {
+      font-size: 17px;
+      color: rgba(13,66,63,.6);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .caminhos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .caminho-card {
+      border-radius: 20px;
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .caminho-card.dark {
+      background: var(--verde-escuro);
+      color: #fff;
+    }
+    .caminho-card.light {
+      background: var(--amarelo);
+      color: var(--verde-escuro);
+    }
+    .caminho-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .caminho-card.dark .caminho-label { background: rgba(105,228,112,.15); color: var(--verde-claro); }
+    .caminho-card.light .caminho-label { background: rgba(13,66,63,.1); color: var(--verde-escuro); }
+    .caminho-title {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .caminho-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      opacity: .8;
+      margin-bottom: 28px;
+    }
+    .caminho-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .caminho-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .caminho-item::before {
+      content: '✓';
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .caminho-card.dark .caminho-item::before { background: rgba(105,228,112,.2); color: var(--verde-claro); }
+    .caminho-card.light .caminho-item::before { background: rgba(13,66,63,.12); color: var(--verde-escuro); }
+    .caminho-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 13px 24px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: transform .15s;
+      text-decoration: none;
+    }
+    .caminho-btn:hover { transform: translateY(-2px); }
+    .caminho-card.dark .caminho-btn { background: var(--verde-claro); color: var(--verde-escuro); }
+    .caminho-card.light .caminho-btn { background: var(--verde-escuro); color: #fff; }
+
+    /* ─── Diferenciais ─── */
+    #diferenciais {
+      background: var(--bege);
+      padding: 96px 0;
+    }
+    .diferenciais-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .dif-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 28px;
+    }
+    .dif-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--amarelo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+    .dif-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--verde-escuro);
+      margin-bottom: 8px;
+    }
+    .dif-text {
+      font-size: 14px;
+      color: rgba(13,66,63,.65);
+      line-height: 1.65;
+    }
+
+    /* ─── Como Funciona ─── */
+    #como-funciona {
+      background: var(--off-white);
+      padding: 96px 0;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(12.5% + 28px);
+      right: calc(12.5% + 28px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--verde-claro), rgba(105,228,112,.2));
+      z-index: 0;
+    }
+    .step {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 0 8px;
+    }
+    .step-num {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--verde-escuro);
+      color: var(--verde-claro);
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      border: 3px solid var(--verde-claro);
+    }
+    .step-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--verde-escuro);
+      margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 13px;
+      color: rgba(13,66,63,.6);
+      line-height: 1.6;
+    }
+    .step-time {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--verde-claro);
+      background: rgba(105,228,112,.12);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+    .como-cta {
+      text-align: center;
+      margin-top: 52px;
+    }
+
+    /* ─── FAQ ─── */
+    #faq {
+      background: var(--amarelo);
+      padding: 96px 0;
+    }
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(13,66,63,.08);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--verde-escuro);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      line-height: 1.4;
+    }
+    .faq-question:hover { background: rgba(13,66,63,.03); }
+    .faq-icon {
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--verde-escuro);
+      flex-shrink: 0;
+      transition: transform .25s;
+      line-height: 1;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 400px; }
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      font-size: 15px;
+      color: rgba(13,66,63,.7);
+      line-height: 1.7;
+    }
+
+    /* ─── CTA Final ─── */
+    #cta-final {
+      background: var(--verde-escuro);
+      padding: 96px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta-final::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(105,228,112,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-final-title {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -.03em;
+      margin-bottom: 16px;
+    }
+    .cta-final-title em { font-style: normal; color: var(--verde-claro); }
+    .cta-final-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,.65);
+      margin-bottom: 40px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-final-btns {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .cta-disclaimer {
+      margin-top: 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,.35);
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      background: #081f1e;
+      padding: 36px 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .footer-logo span { color: var(--verde-claro); }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,.45);
+      transition: color .15s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,.8); }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,.3); }
+
+    /* ─── Mobile Menu ─── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: rgba(13,66,63,.98);
+      backdrop-filter: blur(12px);
+      padding: 20px 24px;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 99;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 16px;
+      font-weight: 500;
+      color: rgba(255,255,255,.8);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ─── Floating WhatsApp ─── */
+    .floating-wa {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      z-index: 200;
+      transition: transform .2s;
+    }
+    .floating-wa:hover { transform: scale(1.1); }
+    .floating-wa svg { width: 28px; height: 28px; fill: #fff; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .hero-inner, .dor-inner { grid-template-columns: 1fr; }
+      .caminhos-grid { grid-template-columns: 1fr !important; }
+      .hero-visual { display: none; }
+      .diferenciais-grid { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .steps::before { display: none; }
+      .prova-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-mobile-btn { display: block; }
+    }
+    @media (max-width: 560px) {
+      .diferenciais-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .prova-grid { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; }
+      .cta-final-btns { flex-direction: column; align-items: center; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="nav-logo"><span style="font-size: 20px; font-weight: 700; color: var(--verde-escuro); letter-spacing: -0.02em;">ASG Hub</span></div>
+      <ul class="nav-links">
+        <li><a href="#caminhos">O que oferecemos</a></li>
+        <li><a href="#diferenciais">Por que a ASG Hub</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+      </ul>
+      <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20avaliar%20a%20compra%20do%20meu%20escrit%C3%B3rio%20de%20contabilidade" class="btn-primary nav-cta" target="_blank" rel="noopener">
+        Quero uma avaliação
+      </a>
+      <button class="nav-mobile-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#caminhos" onclick="toggleMenu()">O que oferecemos</a>
+    <a href="#diferenciais" onclick="toggleMenu()">Por que a ASG Hub</a>
+    <a href="#como-funciona" onclick="toggleMenu()">Como funciona</a>
+    <a href="#faq" onclick="toggleMenu()">Dúvidas</a>
+    <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20avaliar%20a%20compra%20do%20meu%20escrit%C3%B3rio%20de%20contabilidade" target="_blank" rel="noopener" style="color: #69E470; font-weight: 700;">Quero uma avaliação →</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">ASG Hub para Contabilidades</div>
+          <h1 class="hero-title">
+            Tecnologia que tira o peso<br>
+            da operação. Para quem quer<br>
+            <em>escalar — ou descansar.</em>
+          </h1>
+          <p class="hero-sub" style="font-weight: 300;">
+            A ASG Hub cuida das NFs, apurações e obrigações para você focar no que importa: o relacionamento com seus clientes. Você decide o que fazer com essa liberdade — crescer ou descansar.
+          </p>
+          <div class="hero-ctas">
+            <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20avaliar%20a%20compra%20do%20meu%20escrit%C3%B3rio%20de%20contabilidade" class="btn-primary" target="_blank" rel="noopener">
+              💬 Quero uma avaliação gratuita
+            </a>
+            <a href="#como-funciona" class="btn-outline">Como funciona →</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-num">500<span>+</span></div>
+              <div class="hero-stat-label">clientes ativos hoje</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">&lt; <span>2</span> anos</div>
+              <div class="hero-stat-label">para chegar lá</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">94<span>/100</span></div>
+              <div class="hero-stat-label">clientes aprovam a tecnologia</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="card-mockup">
+            <div class="card-mockup-header">
+              <div class="card-avatar">S</div>
+              <div>
+                <div class="card-mockup-name">Avaliação do seu escritório</div>
+                <div class="card-mockup-sub">Proposta não vinculante · Gratuito</div>
+              </div>
+            </div>
+            <div class="card-row">
+              <span class="card-row-label">Faturamento recorrente</span>
+              <span class="card-row-value">R$ 45.000/mês</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row-label">Carteira estimada</span>
+              <span class="card-row-value green">R$ 1.620.000</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row-label">Retenção de clientes</span>
+              <span class="card-row-value">94%</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row-label">Modelo sugerido</span>
+              <span class="card-row-value yellow">Venda total</span>
+            </div>
+            <div class="card-tag-wrapper">
+              <span class="card-pill green">✓ Avaliação justa</span>
+              <span class="card-pill yellow">⚡ Processo em 4–8 semanas</span>
+            </div>
+            <div class="card-cta">Quero minha avaliação →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOR -->
+  <section id="dor">
+    <div class="container">
+      <div class="dor-inner">
+        <div>
+          <span class="tag">A realidade do mercado</span>
+          <h2 class="dor-title">
+            Você construiu algo real.<br>
+            Mas a operação<br>
+            <em>ainda te prende.</em>
+          </h2>
+          <p class="dor-text">
+            Contabilidades pequenas têm enorme valor — mas poucos compradores entendem isso. A ASG Hub chegou para mudar esse jogo.
+          </p>
+        </div>
+        <ul class="dor-list">
+          <li class="dor-item">
+            <span class="dor-icon">📈</span>
+            <span>Você quer crescer a carteira, mas cada cliente novo significa mais horas de trabalho — não mais lucro.</span>
+          </li>
+          <li class="dor-item">
+            <span class="dor-icon">😮‍💨</span>
+            <span>Você conhece cada cliente pelo nome — mas a operação não para quando você tira férias.</span>
+          </li>
+          <li class="dor-item">
+            <span class="dor-icon">📉</span>
+            <span>O mercado está mudando rápido. Tecnologia, IA e novos concorrentes mudam as regras do jogo todo ano.</span>
+          </li>
+          <li class="dor-item">
+            <span class="dor-icon">🏷️</span>
+            <span>Quem quer vender encontra compradores que subvalorizam o que foi construído ao longo de anos.</span>
+          </li>
+          <li class="dor-item">
+            <span class="dor-icon">🤝</span>
+            <span>Você quer garantir que seus clientes vão continuar sendo bem atendidos. E com razão.</span>
+          </li>
+          <li class="dor-item">
+            <span class="dor-icon">📜</span>
+            <span>A Reforma Tributária está chegando e vai mudar a tributação de empresas no Brasil. Quem não se preparar agora — com tecnologia e escala — vai perder clientes para quem se preparou.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL -->
+  <section id="prova">
+    <div class="container">
+      <div class="prova-inner">
+        <span class="tag" style="background: rgba(105,228,112,.15); color: var(--verde-claro);">Nós provamos na prática</span>
+        <h2 class="prova-title">Não somos compradores genéricos.<br>Somos uma empresa de tecnologia contábil.</h2>
+        <p class="prova-sub" style="font-weight: 300;">Construímos nossa própria contabilidade do zero para provar que nosso modelo funciona — antes de fazer qualquer aquisição.</p>
+        <div class="prova-grid">
+          <div class="prova-card">
+            <div class="prova-num">500<span style="font-size:28px">+</span></div>
+            <div class="prova-desc">clientes ativos em nossa própria contabilidade</div>
+          </div>
+          <div class="prova-card">
+            <div class="prova-num">&lt; 2</div>
+            <div class="prova-desc">anos para chegar lá, sem escalar a operação</div>
+          </div>
+          <div class="prova-card">
+            <div class="prova-num">↑ <span style="font-size:32px">Margem</span></div>
+            <div class="prova-desc">mais eficiência e mais lucro com a mesma equipe</div>
+          </div>
+        </div>
+        <div class="prova-quote">
+          <div class="prova-quote-photo-wrap">
+            <img src="andre-face.png" alt="André Servaes" class="prova-quote-photo" />
+          </div>
+          <div class="prova-quote-text">
+            <p>"Automatizamos com tecnologia o que outros fazem com pessoas. Isso nos permite oferecer mais por menos — e passar esse valor para quem vende e para os clientes."</p>
+            <cite>— André Servaes, CEO da ASG Hub</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMINHOS -->
+  <section id="caminhos">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">O que oferecemos</span>
+        <h2 class="section-title">Três caminhos.<br><em>Você escolhe o seu.</em></h2>
+        <p class="section-sub">Cada contador está em um momento diferente. A ASG Hub se adapta ao seu.</p>
+      </div>
+      <div class="caminhos-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="caminho-card dark">
+          <div class="caminho-label">Fique e Escale</div>
+          <h3 class="caminho-title">A tecnologia ASG Hub entra na sua operação. Você atende mais — sem contratar mais.</h3>
+          <p class="caminho-desc">Automatizamos NFs, apurações e obrigações acessórias. Você foca no relacionamento com os clientes. A plataforma cuida do resto.</p>
+          <ul class="caminho-items">
+            <li class="caminho-item">NFs, apurações e obrigações no automático</li>
+            <li class="caminho-item">Atenda mais clientes com a mesma equipe</li>
+            <li class="caminho-item">Foque em consultoria e relacionamento</li>
+            <li class="caminho-item">Cresça a carteira sem crescer a operação</li>
+            <li class="caminho-item">Você continua dono do seu negócio</li>
+          </ul>
+          <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20avaliar%20a%20compra%20do%20meu%20escrit%C3%B3rio%20de%20contabilidade" class="caminho-btn" target="_blank" rel="noopener">
+            Quero crescer com tecnologia →
+          </a>
+        </div>
+        <div class="caminho-card light">
+          <div class="caminho-label">Venda Parcial</div>
+          <h3 class="caminho-title">Venda uma parte, fique com o resto — e opera com menos peso.</h3>
+          <p class="caminho-desc">Você escolhe quais clientes transferir, recebe liquidez imediata por eles, e ainda ganha a tecnologia ASG Hub para turbinar o que ficou.</p>
+          <ul class="caminho-items">
+            <li class="caminho-item">Você decide quais clientes entram na venda</li>
+            <li class="caminho-item">Liquidez imediata pela parcela vendida</li>
+            <li class="caminho-item">Tecnologia ASG Hub na sua operação restante</li>
+            <li class="caminho-item">Atenda mais com a mesma equipe</li>
+            <li class="caminho-item">Continue dono do seu negócio</li>
+          </ul>
+          <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20avaliar%20a%20compra%20do%20meu%20escrit%C3%B3rio%20de%20contabilidade" class="caminho-btn" target="_blank" rel="noopener">
+            Quero entender a venda parcial →
+          </a>
+        </div>
+        <div class="caminho-card dark">
+          <div class="caminho-label">Venda Total</div>
+          <h3 class="caminho-title">Você recebe pelo que levou anos construindo. E fecha o ciclo com tranquilidade.</h3>
+          <p class="caminho-desc">Compramos sua carteira inteira. Você recebe, seus clientes ficam bem cuidados, e a operação segue — sem você precisar manter nada.</p>
+          <ul class="caminho-items">
+            <li class="caminho-item">Precificação baseada em dados do seu escritório</li>
+            <li class="caminho-item">Pagamento com entrada e parcelas definidas antes de assinar</li>
+            <li class="caminho-item">Seus clientes migram gradualmente, sem susto</li>
+            <li class="caminho-item">Sigilo total até o momento que você escolher</li>
+            <li class="caminho-item">Suporte durante a transição incluído</li>
+          </ul>
+          <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20avaliar%20a%20compra%20do%20meu%20escrit%C3%B3rio%20de%20contabilidade" class="caminho-btn" target="_blank" rel="noopener">
+            Quero vender meu escritório →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section id="diferenciais">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Por que a ASG Hub</span>
+        <h2 class="section-title">Não é só uma compra.<br><em>É uma transformação.</em></h2>
+        <p class="section-sub">Quando a ASG Hub adquire seu escritório, traz consigo tecnologia que muda o padrão de atendimento dos seus clientes.</p>
+      </div>
+      <div class="diferenciais-grid">
+        <div class="dif-card">
+          <div class="dif-icon">🤖</div>
+          <h3 class="dif-title">Tecnologia própria de IA</h3>
+          <p class="dif-text">Automatizamos NFs, apurações e obrigações acessórias. Você foca no que nenhuma tecnologia substitui: o relacionamento com o seu cliente. A plataforma cuida do resto.</p>
+        </div>
+        <div class="dif-card">
+          <div class="dif-icon">🛡️</div>
+          <h3 class="dif-title">Seus clientes em boas mãos</h3>
+          <p class="dif-text">Transição gradual, comunicação planejada e atendimento no WhatsApp com respostas em minutos. Seus clientes não vão sentir a diferença — vão sentir a melhora.</p>
+        </div>
+        <div class="dif-card">
+          <div class="dif-icon">⚖️</div>
+          <h3 class="dif-title">Avaliação justa e transparente</h3>
+          <p class="dif-text">Analisamos faturamento recorrente, retenção e perfil da carteira. Cada número tem uma explicação — você entende o raciocínio por trás do valor que propomos.</p>
+        </div>
+        <div class="dif-card">
+          <div class="dif-icon">🔒</div>
+          <h3 class="dif-title">Confidencialidade total</h3>
+          <p class="dif-text">Assinamos um acordo de confidencialidade antes de conversar sobre qualquer detalhe sensível. Você controla quem fica sabendo e quando.</p>
+        </div>
+        <div class="dif-card">
+          <div class="dif-icon">📋</div>
+          <h3 class="dif-title">Processo claro com prazos reais</h3>
+          <p class="dif-text">Cada etapa tem nome e prazo. Do bate-papo inicial ao fechamento, em média 4 a 8 semanas. Você acompanha tudo e nunca fica no escuro sobre o que vem a seguir.</p>
+        </div>
+        <div class="dif-card">
+          <div class="dif-icon">💸</div>
+          <h3 class="dif-title">Pagamento estruturado</h3>
+          <p class="dif-text">Valores e condições acordados antes de qualquer assinatura. Entrada mais parcelas vinculadas a marcos da transição — você sabe exatamente quanto e quando vai receber.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Como funciona</span>
+        <h2 class="section-title">Simples, rápido<br>e <em>sem surpresas.</em></h2>
+        <p class="section-sub">Do primeiro contato ao dinheiro na conta — um processo que respeita o seu tempo.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3 class="step-title">Bate-papo inicial</h3>
+          <p class="step-desc">Você nos conta sobre o escritório. A gente escuta, tira dúvidas e explica como funciona. Sem pressão, sem compromisso.</p>
+          <span class="step-time">30 min · gratuito</span>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3 class="step-title">Análise e número</h3>
+          <p class="step-desc">Com base nos dados do seu escritório, calculamos o valor e apresentamos uma proposta clara com os cenários possíveis.</p>
+          <span class="step-time">1–2 semanas</span>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3 class="step-title">Revisão e assinatura</h3>
+          <p class="step-desc">Você revisa tudo com calma, tira qualquer dúvida restante e, se fizer sentido, a gente fecha. Sigilo garantido do início ao fim.</p>
+          <span class="step-time">2–4 semanas</span>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3 class="step-title">Passagem de bastão</h3>
+          <p class="step-desc">Cada cliente é comunicado no seu tempo, do jeito certo. A ASG Hub assume a operação e você segue em frente — tranquilo.</p>
+          <span class="step-time">gradual</span>
+        </div>
+      </div>
+      <div class="como-cta">
+        <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20avaliar%20a%20compra%20do%20meu%20escrit%C3%B3rio%20de%20contabilidade" class="btn-primary" target="_blank" rel="noopener">
+          💬 Dar o primeiro passo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Dúvidas frequentes</span>
+        <h2 class="section-title">Perguntas <em>comuns.</em></h2>
+        <p class="section-sub">Transparência em cada etapa. Se não encontrar sua resposta aqui, é só chamar.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            O que acontece com meus clientes após a venda?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Seus clientes continuam sendo atendidos — agora com a tecnologia ASG Hub por trás. A comunicação é feita no momento certo, do jeito certo, sem causar insegurança. O que muda para eles, na prática, é a qualidade do atendimento melhorar.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            E meus funcionários? Eles são demitidos?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Dependendo do modelo, sim — avaliamos quem quer continuar e, quando faz sentido para as duas partes, absorvemos a equipe. Não há uma resposta padrão aqui: cada caso é conversado abertamente.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Como é calculado o valor da minha carteira?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Olhamos o faturamento mensal recorrente, o tempo médio de permanência dos clientes, o mix tributário e o histórico de crescimento. Os números são apresentados de forma clara — você entende cada critério antes de decidir qualquer coisa.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Qual o tamanho mínimo de escritório que vocês consideram?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Nosso foco são escritórios com carteira ativa e faturamento mensal recorrente. Não temos um mínimo fixo — o que importa é o perfil dos clientes e a consistência da receita. Se tiver dúvida, é só perguntar.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            A conversa inicial tem algum custo ou compromisso?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Zero. É gratuita, rápida e você não assume nenhum compromisso. Muita gente bate um papo só para entender o que o escritório vale — e isso já é suficiente.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            O processo é confidencial até o fechamento?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Sim. Antes de qualquer troca de informação relevante, assinamos um acordo de confidencialidade. Você controla quando e como as pessoas ao redor ficam sabendo.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Como é o pagamento? À vista, parcelado?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Trabalhamos com entrada + parcelas, com condições ajustadas ao perfil de cada escritório. Seja venda total ou parcial, o fluxo financeiro é acordado antes de qualquer assinatura — sem surpresas depois.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="cta-final">
+    <div class="container">
+      <h2 class="cta-final-title">
+        Qual é o seu<br>
+        <em>próximo passo?</em>
+      </h2>
+      <p class="cta-final-sub">Conversa gratuita, sem compromisso. 30 minutos que podem mudar o próximo capítulo do seu escritório.</p>
+      <div class="cta-final-btns">
+        <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20quero%20crescer%20meu%20escrit%C3%B3rio%20com%20tecnologia" class="btn-primary" target="_blank" rel="noopener" style="font-size:16px; padding: 16px 28px;">
+          🚀 Quero crescer com tecnologia
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20quero%20entender%20quanto%20vale%20minha%20carteira" class="btn-outline" target="_blank" rel="noopener" style="font-size:16px; padding: 16px 28px;">
+          💰 Quero avaliar minha carteira
+        </a>
+      </div>
+      <p class="cta-disclaimer">Confidencial · Sem compromisso · Resposta em minutos</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo"><span style="font-size: 18px; font-weight: 700; letter-spacing: -0.02em;">ASG Hub</span></div>
+        <ul class="footer-links">
+          <li><a href="#caminhos">O que oferecemos</a></li>
+          <li><a href="#diferenciais">Por que a ASG Hub</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#faq">Dúvidas</a></li>
+          <li><a href="https://www.asghub.com.br" target="_blank">asghub.com.br</a></li>
+        </ul>
+        <p class="footer-copy">© 2026 ASG Hub. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20avaliar%20a%20compra%20do%20meu%20escrit%C3%B3rio%20de%20contabilidade" class="floating-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    // FAQ toggle
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    // Smooth scroll offset for fixed nav
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 72;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Subtle scroll animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.dif-card, .step, .caminho-card, .prova-card, .faq-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .5s ease, transform .5s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
