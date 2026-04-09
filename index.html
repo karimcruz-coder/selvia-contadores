@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Selvia — Compramos sua contabilidade</title>
-  <meta name="description" content="A Selvia compra contabilidades pequenas e injeta tecnologia para escalar. Avaliação justa, processo transparente, seus clientes bem cuidados." />
+  <title>ASG Hub — Compramos sua contabilidade</title>
+  <meta name="description" content="A ASG Hub compra contabilidades pequenas e injeta tecnologia para escalar. Avaliação justa, processo transparente, seus clientes bem cuidados." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -832,7 +832,8 @@
 
     /* ─── Responsive ─── */
     @media (max-width: 900px) {
-      .hero-inner, .dor-inner, .caminhos-grid { grid-template-columns: 1fr; }
+      .hero-inner, .dor-inner { grid-template-columns: 1fr; }
+      .caminhos-grid { grid-template-columns: 1fr !important; }
       .hero-visual { display: none; }
       .diferenciais-grid { grid-template-columns: 1fr 1fr; }
       .steps { grid-template-columns: 1fr 1fr; gap: 28px; }
@@ -856,10 +857,10 @@
   <!-- NAV -->
   <nav>
     <div class="container nav-inner">
-      <div class="nav-logo"><img src="selvia-logo.png" alt="Selvia" style="height: 32px; display: block;" /></div>
+      <div class="nav-logo"><span style="font-size: 20px; font-weight: 700; color: var(--verde-escuro); letter-spacing: -0.02em;">ASG Hub</span></div>
       <ul class="nav-links">
         <li><a href="#caminhos">O que oferecemos</a></li>
-        <li><a href="#diferenciais">Por que a Selvia</a></li>
+        <li><a href="#diferenciais">Por que a ASG Hub</a></li>
         <li><a href="#como-funciona">Como funciona</a></li>
         <li><a href="#faq">Dúvidas</a></li>
       </ul>
@@ -873,7 +874,7 @@
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#caminhos" onclick="toggleMenu()">O que oferecemos</a>
-    <a href="#diferenciais" onclick="toggleMenu()">Por que a Selvia</a>
+    <a href="#diferenciais" onclick="toggleMenu()">Por que a ASG Hub</a>
     <a href="#como-funciona" onclick="toggleMenu()">Como funciona</a>
     <a href="#faq" onclick="toggleMenu()">Dúvidas</a>
     <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20avaliar%20a%20compra%20do%20meu%20escrit%C3%B3rio%20de%20contabilidade" target="_blank" rel="noopener" style="color: #69E470; font-weight: 700;">Quero uma avaliação →</a>
@@ -884,13 +885,14 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-content">
-          <div class="hero-badge">Selvia para Contabilidades</div>
+          <div class="hero-badge">ASG Hub para Contabilidades</div>
           <h1 class="hero-title">
-            Existe um momento certo<br>
-            para vender. <em>Pode ser agora.</em>
+            Tecnologia que tira o peso<br>
+            da operação. Para quem quer<br>
+            <em>escalar — ou descansar.</em>
           </h1>
           <p class="hero-sub" style="font-weight: 300;">
-            A Selvia compra contabilidades e injeta tecnologia para fazer mais com menos. Avaliação honesta, processo sem enrolação, seus clientes continuam em boas mãos.
+            A ASG Hub cuida das NFs, apurações e obrigações para você focar no que importa: o relacionamento com seus clientes. Você decide o que fazer com essa liberdade — crescer ou descansar.
           </p>
           <div class="hero-ctas">
             <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20avaliar%20a%20compra%20do%20meu%20escrit%C3%B3rio%20de%20contabilidade" class="btn-primary" target="_blank" rel="noopener">
@@ -961,10 +963,14 @@
             <em>ainda te prende.</em>
           </h2>
           <p class="dor-text">
-            Contabilidades pequenas têm enorme valor — mas poucos compradores entendem isso. A Selvia chegou para mudar esse jogo.
+            Contabilidades pequenas têm enorme valor — mas poucos compradores entendem isso. A ASG Hub chegou para mudar esse jogo.
           </p>
         </div>
         <ul class="dor-list">
+          <li class="dor-item">
+            <span class="dor-icon">📈</span>
+            <span>Você quer crescer a carteira, mas cada cliente novo significa mais horas de trabalho — não mais lucro.</span>
+          </li>
           <li class="dor-item">
             <span class="dor-icon">😮‍💨</span>
             <span>Você conhece cada cliente pelo nome — mas a operação não para quando você tira férias.</span>
@@ -1017,7 +1023,7 @@
           </div>
           <div class="prova-quote-text">
             <p>"Automatizamos com tecnologia o que outros fazem com pessoas. Isso nos permite oferecer mais por menos — e passar esse valor para quem vende e para os clientes."</p>
-            <cite>— André Servaes, CEO da Selvia</cite>
+            <cite>— André Servaes, CEO da ASG Hub</cite>
           </div>
         </div>
       </div>
@@ -1029,14 +1035,44 @@
     <div class="container">
       <div class="section-header">
         <span class="tag">O que oferecemos</span>
-        <h2 class="section-title">Venda total ou parcial.<br><em>Você decide o quanto.</em></h2>
-        <p class="section-sub">Compramos sua carteira inteira ou parte dela — com tecnologia Selvia entrando no pacote.</p>
+        <h2 class="section-title">Três caminhos.<br><em>Você escolhe o seu.</em></h2>
+        <p class="section-sub">Cada contador está em um momento diferente. A ASG Hub se adapta ao seu.</p>
       </div>
-      <div class="caminhos-grid">
+      <div class="caminhos-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="caminho-card dark">
+          <div class="caminho-label">Fique e Escale</div>
+          <h3 class="caminho-title">A tecnologia ASG Hub entra na sua operação. Você atende mais — sem contratar mais.</h3>
+          <p class="caminho-desc">Automatizamos NFs, apurações e obrigações acessórias. Você foca no relacionamento com os clientes. A plataforma cuida do resto.</p>
+          <ul class="caminho-items">
+            <li class="caminho-item">NFs, apurações e obrigações no automático</li>
+            <li class="caminho-item">Atenda mais clientes com a mesma equipe</li>
+            <li class="caminho-item">Foque em consultoria e relacionamento</li>
+            <li class="caminho-item">Cresça a carteira sem crescer a operação</li>
+            <li class="caminho-item">Você continua dono do seu negócio</li>
+          </ul>
+          <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20avaliar%20a%20compra%20do%20meu%20escrit%C3%B3rio%20de%20contabilidade" class="caminho-btn" target="_blank" rel="noopener">
+            Quero crescer com tecnologia →
+          </a>
+        </div>
+        <div class="caminho-card light">
+          <div class="caminho-label">Venda Parcial</div>
+          <h3 class="caminho-title">Venda uma parte, fique com o resto — e opera com menos peso.</h3>
+          <p class="caminho-desc">Você escolhe quais clientes transferir, recebe liquidez imediata por eles, e ainda ganha a tecnologia ASG Hub para turbinar o que ficou.</p>
+          <ul class="caminho-items">
+            <li class="caminho-item">Você decide quais clientes entram na venda</li>
+            <li class="caminho-item">Liquidez imediata pela parcela vendida</li>
+            <li class="caminho-item">Tecnologia ASG Hub na sua operação restante</li>
+            <li class="caminho-item">Atenda mais com a mesma equipe</li>
+            <li class="caminho-item">Continue dono do seu negócio</li>
+          </ul>
+          <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20avaliar%20a%20compra%20do%20meu%20escrit%C3%B3rio%20de%20contabilidade" class="caminho-btn" target="_blank" rel="noopener">
+            Quero entender a venda parcial →
+          </a>
+        </div>
         <div class="caminho-card dark">
           <div class="caminho-label">Venda Total</div>
           <h3 class="caminho-title">Você recebe pelo que levou anos construindo. E fecha o ciclo com tranquilidade.</h3>
-          <p class="caminho-desc">Compramos sua carteira inteira, com avaliação baseada em dados reais. Você recebe, seus clientes ficam bem cuidados, e a operação segue — sem você precisar manter nada.</p>
+          <p class="caminho-desc">Compramos sua carteira inteira. Você recebe, seus clientes ficam bem cuidados, e a operação segue — sem você precisar manter nada.</p>
           <ul class="caminho-items">
             <li class="caminho-item">Precificação baseada em dados do seu escritório</li>
             <li class="caminho-item">Pagamento com entrada e parcelas definidas antes de assinar</li>
@@ -1048,21 +1084,6 @@
             Quero vender meu escritório →
           </a>
         </div>
-        <div class="caminho-card light">
-          <div class="caminho-label">Venda Parcial</div>
-          <h3 class="caminho-title">Venda uma fatia, fique com o resto — e opera com a tecnologia da Selvia.</h3>
-          <p class="caminho-desc">Você escolhe quais clientes transferir, recebe liquidez imediata por eles, e ainda ganha acesso à nossa plataforma para turbinar o que ficou. Menos peso, mais resultado.</p>
-          <ul class="caminho-items">
-            <li class="caminho-item">Você decide quais clientes entram na venda</li>
-            <li class="caminho-item">Liquidez imediata pela parcela vendida</li>
-            <li class="caminho-item">Tecnologia Selvia na sua operação restante</li>
-            <li class="caminho-item">Atenda mais com a mesma equipe</li>
-            <li class="caminho-item">Continue dono do seu negócio</li>
-          </ul>
-          <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20avaliar%20a%20compra%20do%20meu%20escrit%C3%B3rio%20de%20contabilidade" class="caminho-btn" target="_blank" rel="noopener">
-            Quero entender a venda parcial →
-          </a>
-        </div>
       </div>
     </div>
   </section>
@@ -1071,15 +1092,15 @@
   <section id="diferenciais">
     <div class="container">
       <div class="section-header">
-        <span class="tag">Por que a Selvia</span>
+        <span class="tag">Por que a ASG Hub</span>
         <h2 class="section-title">Não é só uma compra.<br><em>É uma transformação.</em></h2>
-        <p class="section-sub">Quando a Selvia adquire seu escritório, traz consigo tecnologia que muda o padrão de atendimento dos seus clientes.</p>
+        <p class="section-sub">Quando a ASG Hub adquire seu escritório, traz consigo tecnologia que muda o padrão de atendimento dos seus clientes.</p>
       </div>
       <div class="diferenciais-grid">
         <div class="dif-card">
           <div class="dif-icon">🤖</div>
           <h3 class="dif-title">Tecnologia própria de IA</h3>
-          <p class="dif-text">Nossa plataforma automatiza folha, fiscal, escrita contábil e atendimento ao cliente. Menos operação, mais margem — provado na nossa própria contabilidade.</p>
+          <p class="dif-text">Automatizamos NFs, apurações e obrigações acessórias. Você foca no que nenhuma tecnologia substitui: o relacionamento com o seu cliente. A plataforma cuida do resto.</p>
         </div>
         <div class="dif-card">
           <div class="dif-icon">🛡️</div>
@@ -1140,7 +1161,7 @@
         <div class="step">
           <div class="step-num">4</div>
           <h3 class="step-title">Passagem de bastão</h3>
-          <p class="step-desc">Cada cliente é comunicado no seu tempo, do jeito certo. A Selvia assume a operação e você segue em frente — tranquilo.</p>
+          <p class="step-desc">Cada cliente é comunicado no seu tempo, do jeito certo. A ASG Hub assume a operação e você segue em frente — tranquilo.</p>
           <span class="step-time">gradual</span>
         </div>
       </div>
@@ -1167,7 +1188,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Seus clientes continuam sendo atendidos — agora com a tecnologia Selvia por trás. A comunicação é feita no momento certo, do jeito certo, sem causar insegurança. O que muda para eles, na prática, é a qualidade do atendimento melhorar.</div>
+            <div class="faq-answer-inner">Seus clientes continuam sendo atendidos — agora com a tecnologia ASG Hub por trás. A comunicação é feita no momento certo, do jeito certo, sem causar insegurança. O que muda para eles, na prática, é a qualidade do atendimento melhorar.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -1232,13 +1253,16 @@
   <section id="cta-final">
     <div class="container">
       <h2 class="cta-final-title">
-        Pronto para descobrir<br>
-        quanto vale seu <em>escritório?</em>
+        Qual é o seu<br>
+        <em>próximo passo?</em>
       </h2>
-      <p class="cta-final-sub">Conversa gratuita, sem compromisso. 30 minutos que podem mudar o próximo capítulo da sua vida.</p>
+      <p class="cta-final-sub">Conversa gratuita, sem compromisso. 30 minutos que podem mudar o próximo capítulo do seu escritório.</p>
       <div class="cta-final-btns">
-        <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20avaliar%20a%20compra%20do%20meu%20escrit%C3%B3rio%20de%20contabilidade" class="btn-primary" target="_blank" rel="noopener" style="font-size:17px; padding: 16px 32px;">
-          💬 Quero minha avaliação gratuita
+        <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20quero%20crescer%20meu%20escrit%C3%B3rio%20com%20tecnologia" class="btn-primary" target="_blank" rel="noopener" style="font-size:16px; padding: 16px 28px;">
+          🚀 Quero crescer com tecnologia
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=5511936220451&text=Ol%C3%A1!%20Vim%20do%20site%20e%20quero%20entender%20quanto%20vale%20minha%20carteira" class="btn-outline" target="_blank" rel="noopener" style="font-size:16px; padding: 16px 28px;">
+          💰 Quero avaliar minha carteira
         </a>
       </div>
       <p class="cta-disclaimer">Confidencial · Sem compromisso · Resposta em minutos</p>
@@ -1249,15 +1273,15 @@
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-logo"><img src="selvia-logo.png" alt="Selvia" style="height: 28px; display: block;" /></div>
+        <div class="footer-logo"><span style="font-size: 18px; font-weight: 700; letter-spacing: -0.02em;">ASG Hub</span></div>
         <ul class="footer-links">
           <li><a href="#caminhos">O que oferecemos</a></li>
-          <li><a href="#diferenciais">Por que a Selvia</a></li>
+          <li><a href="#diferenciais">Por que a ASG Hub</a></li>
           <li><a href="#como-funciona">Como funciona</a></li>
           <li><a href="#faq">Dúvidas</a></li>
-          <li><a href="https://www.selvia.com.br" target="_blank">selvia.com.br</a></li>
+          <li><a href="https://www.asghub.com.br" target="_blank">asghub.com.br</a></li>
         </ul>
-        <p class="footer-copy">© 2026 Selvia. Todos os direitos reservados.</p>
+        <p class="footer-copy">© 2026 ASG Hub. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
